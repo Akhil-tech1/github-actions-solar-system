@@ -6,6 +6,12 @@ on:
     branches:
       - main
       - 'feature/*'
+env:
+  MONGO_URI: mongodb+srv://supercluster.d83jj.mongodb.net/superData
+  MONGO_USERNAME: superuser
+  MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}
+  # If your app reads MONGODB_URI instead, uncomment the next line:
+  # MONGODB_URI: ${{ env.MONGO_URI }}
     
 jobs:
     unit-testing:
@@ -60,6 +66,7 @@ jobs:
             context: .
             push: true
             tags: 'ghcr.io/${{ github.repository_owner }}/solar-system:${{ github.sha }}'
+
 
 
 
