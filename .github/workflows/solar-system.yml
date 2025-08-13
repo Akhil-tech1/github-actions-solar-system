@@ -54,9 +54,6 @@ jobs:
         needs:
         - code-coverage
         - unit-testing
-        permissions:
-          contents: read
-          packages: write
         steps:
         - uses: actions/checkout@v4
 
@@ -77,3 +74,4 @@ jobs:
             context: .
             push: true
             tags: ghcr.io/${{ steps.lower.outputs.repo }}/solar-system:${{ github.sha }}
+
